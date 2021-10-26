@@ -6,13 +6,13 @@
 /*   By: jcid-gon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 14:45:02 by jcid-gon          #+#    #+#             */
-/*   Updated: 2021/10/07 14:29:48 by jcid-gon         ###   ########.fr       */
+/*   Updated: 2021/10/26 12:00:39 by jcid-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../server.h"
 
-void	signal_handler(int signum)
+void	ft_signal_handler(int signum)
 {
 	static int	bits = 0;
 	static char	c = 0xFF;
@@ -36,8 +36,8 @@ int	main(void)
 
 	pid = getpid();
 	ft_printf("PID: %d\n", pid);
-	signal(SIGUSR1, signal_handler);
-	signal(SIGUSR2, signal_handler);
+	signal(SIGUSR1, ft_signal_handler);
+	signal(SIGUSR2, ft_signal_handler);
 	while (1)
 		pause();
 }
